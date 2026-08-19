@@ -78,3 +78,7 @@ create table tb_alunos (id      integer not null,
 - *.png - Arquivos de imagens do README.md.
 - Dockerfile - Arquivo de configuração do Docker.
 - compose.yml - Arquivo de configuração da composição do Docker.
+
+## Arquitetura do Sistema
+
+![Arquitetura](arquitetura.png)
