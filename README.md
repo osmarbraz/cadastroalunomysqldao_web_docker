@@ -11,7 +11,7 @@ Sistema de Cadastro de Aluno WEB com Docker Compose e Banco de Dados MySQL e Doc
  - Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.
  - Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação. 
  - Utiliza o **MySQL 8.4** como banco de dados da aplicação. 
- - O projeto é um **CRUD** para os dados de aluno(id, nome, idade, curso e fase).
+ - O projeto é um **CRUD** para os dados de aluno (id, nome, idade, curso e fase).
  - As classes do projeto está organizado nos **pacotes** visão, controle, modelo e dao.
  - Toda iteração com banco de dados é tratada diretamente pelo **DAO**(Data Access Object).
  - Os dados de **configuração** (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/AlunoDAO.java.
@@ -21,16 +21,16 @@ Sistema de Cadastro de Aluno WEB com Docker Compose e Banco de Dados MySQL e Doc
  - Utilizar o terminal do Windows Powershel em modo administrador.
 
 ### Para criar os conteiner e os serviços
- - docker compose up --build
+ - ```docker compose up --build```
 
 ### Parar os serviços
- - docker compose down -v
+ - ```docker compose down -v```
 
 ### Abra o navegador em:
  - http://localhost:8080/
 
 ### Remover as imagens
- - docker compose down --rmi all
+ - ```docker compose down --rmi all```
 
 ## Banco de dados
 
@@ -38,7 +38,7 @@ Sistema de Cadastro de Aluno WEB com Docker Compose e Banco de Dados MySQL e Doc
 
 ### Cria a tabela de tb_alunos
 
-- Se precisar abaixo está o script para a criação do banco de dados e da tabela. O script completo está no arquivo [banco.sql](banco.sql).
+- Abaixo o script SQl se precisar criar o banco de dados e a tabela[banco.sql](banco.sql).
 
 ```
 # Criar o database chamado db_alunos

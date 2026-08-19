@@ -29,8 +29,10 @@ public class AlunoDAO {
         criar();
     }
 
-    /**
-     * Retorna uma conexão com o banco de dados com o database.
+     /**
+     * Retorna uma conexão aberta para o MySQL com o esquema(database).
+     *
+     * @return Connection Um objeto com a conexão aberta com o MySQL e database.
      */
     public Connection getConexao() {
         Connection connection = null;  //instância da conexão
@@ -55,7 +57,10 @@ public class AlunoDAO {
     }
 
     /**
-     * Retorna uma conexão com o banco de dados se o database.
+     * Retorna uma conexão aberta para o MySQL sem o esquema(database).
+     *
+     * @return Connection Um objeto com a conexão aberta com o MySQL e sem o
+     * database.
      */
     public Connection getConexaoBD() {
         Connection connection = null;  //instância da conexão
@@ -205,7 +210,7 @@ public class AlunoDAO {
     }
 
     /**
-     * Cria o database e a tabela.
+     * Sequência de criação do database e tabela.
      */
     private void criar() {
         criarBancoDeDados();
@@ -213,10 +218,11 @@ public class AlunoDAO {
     }
 
     /**
-     * Cria o database.
+     * Cria o esquema(database) no banco de dados.
      */
     private void criarBancoDeDados() {
         try {
+            //Utiliza a conexão com o banco de dados sem especificar o esquema.
             Connection con = getConexaoBD();
             Statement stmt = con.createStatement();
             //Cria a tabela senão existir
@@ -232,6 +238,7 @@ public class AlunoDAO {
      */
     private void criarTabela() {
         try {
+            //Utiliza a conexão com o banco de dados com a especificação do esquema.
             Connection con = getConexao();
             Statement stmt = con.createStatement();
             //Cria a tabela senão existir
