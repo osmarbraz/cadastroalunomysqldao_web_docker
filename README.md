@@ -5,22 +5,22 @@ Sistema de Cadastro de Aluno WEB com Docker Compose e Banco de Dados MySQL e Doc
 ## Sobre o projeto
  - O projeto foi desenvolvido no NetBeans deve ser chamado **cadastroalunomysqldao_web_docker**.
  - Utiliza o **Java 8**.
- - Utiliza o **Apache Tomcat 9** como servidor de aplica��es Web.
+ - Utiliza o **Apache Tomcat 9** como servidor de aplicações Web.
  - Utiliza o **Apache Maven** para automatizar o processo de construção da aplicação.
  - A aplicação é empacotada no formato **WAR (Web Application Archive)**.
  - Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.
  - Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação. 
  - Utiliza o **MySQL 8.4** como banco de dados da aplicação. 
- - O projeto é um CRUD para os dados de aluno(id, nome, idade, curso e fase).
- - As classes do projeto está organizado nos pacotes visão, controle, modelo e dao.
- - Toda iteração com banco de dados é tratada diretamente pelo DAO(Data Access Object).
- - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/AlunoDAO.java.
- - A interface gráfica foi construída utilizando HTML, JavaScript e CSS.
+ - O projeto é um **CRUD** para os dados de aluno(id, nome, idade, curso e fase).
+ - As classes do projeto está organizado nos **pacotes** visão, controle, modelo e dao.
+ - Toda iteração com banco de dados é tratada diretamente pelo **DAO**(Data Access Object).
+ - Os dados de **configuração** (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/AlunoDAO.java.
+ - A **interface gráfica** foi construída utilizando HTML, JavaScript e CSS.
 
 ## Docker
  - Utilizar o terminal do Windows Powershel em modo administrador.
 
-### Para criar os conteiner e os servi�os
+### Para criar os conteiner e os serviços
  - docker compose up --build
 
 ### Parar os serviços
