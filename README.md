@@ -82,3 +82,6 @@ create table tb_alunos (id      integer not null,
 ## Arquitetura do Sistema
 
 ![Arquitetura](arquitetura.png)
+
+## Docker Hub
+ - https://hub.docker.com/r/osmarbraz/cadastroalunomysqldao_web_docker
