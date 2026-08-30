@@ -40,7 +40,61 @@ services:
       # A porta 3306 é a porta padrão utilizada pelo protocolo
       # MySQL.
       - "3306:3306"
+      
+    # Define uma verificação de saúde (healthcheck) para o MySQL.
+    #
+    # O healthcheck permite verificar se o servidor MySQL
+    # está realmente funcionando e pronto para receber conexões.
+    healthcheck:
 
+      # Comando utilizado para verificar se o servidor MySQL
+      # está respondendo corretamente.
+      #
+      # "mysqladmin ping" envia uma solicitação ao servidor MySQL
+      # para verificar se ele está disponível.
+      #
+      # CMD indica que o comando será executado diretamente
+      # pelo Docker dentro do container.
+      #
+      # "-h localhost" indica que a verificação será realizada
+      # no servidor MySQL localizado no próprio container.
+      #
+      # "-u root" define o usuário utilizado na verificação.
+      #
+      # "-root" define a senha do usuário root.
+      # A opção "-p" indica a senha e "root" é o valor da senha.      
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+
+      # Define o intervalo entre as verificações.
+      #
+      # Neste caso, o Docker executará o healthcheck
+      # a cada 10 segundos.
+      interval: 10s
+
+      # Define o tempo máximo que o Docker aguardará
+      # pela resposta do comando de verificação.
+      #
+      # Se o MySQL não responder dentro de 5 segundos,
+      # a verificação será considerada como falha.
+      timeout: 5s
+
+      # Define a quantidade de tentativas consecutivas
+      # que podem falhar antes de o container ser considerado
+      # como "unhealthy" (não saudável).
+      #
+      # Neste caso, são permitidas até 5 falhas consecutivas.
+      retries: 5
+
+      # Define um período inicial de tolerância para a inicialização
+      # do MySQL.
+      #
+      # Durante os primeiros 30 segundos, as falhas do healthcheck
+      # não serão consideradas para determinar o estado "unhealthy".
+      #
+      # Esse período é importante porque o MySQL pode levar alguns
+      # segundos para inicializar completamente.
+      start_period: 30s
+      
     # Define os volumes utilizados pelo container.
     volumes:
 
@@ -192,11 +246,11 @@ services:
       # Determina que o container MySQL deve ser iniciado
       # antes do container da aplicação.
       #
-      # IMPORTANTE:
-      # Isso não garante que o MySQL esteja totalmente pronto
-      # para aceitar conexões. Apenas estabelece a ordem de
-      # inicialização dos containers.
-      - mysql
+      # A condição "service_healthy" determina que a aplicação
+      # deverá aguardar o MySQL apresentar o estado "healthy"
+      # antes de ser iniciada.  
+      mysql:
+          condition: service_healthy
 
     # Conecta a aplicação à mesma rede utilizada pelo MySQL.
     #
