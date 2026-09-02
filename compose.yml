@@ -22,8 +22,6 @@ services:
     # "unless-stopped" reinicia automaticamente o container,
     # exceto quando ele tiver sido parado manualmente.
     restart: unless-stopped
-
-    # command: --lower_case_table_names=1
     
     # Variáveis de ambiente utilizadas durante a configuração
     # inicial do MySQL.
@@ -61,7 +59,7 @@ services:
       #
       # "-u root" define o usuário utilizado na verificação.
       #
-      # "-root" define a senha do usuário root.
+      # "-proot" define a senha do usuário root.
       # A opção "-p" indica a senha e "root" é o valor da senha.      
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
 
