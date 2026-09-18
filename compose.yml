@@ -178,7 +178,7 @@ services:
       # se conectar.
       #
       # "mysql" corresponde ao nome do serviço MySQL definido
-      # no docker-compose.yml.
+      # no compose.yml.
       #
       # Como os dois containers estão na mesma rede Docker,
       # o phpMyAdmin consegue localizar o MySQL pelo nome
