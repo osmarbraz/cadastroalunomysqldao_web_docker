@@ -140,7 +140,7 @@ services:
     #
     # A imagem phpmyadmin/phpmyadmin contém o phpMyAdmin
     # e os componentes necessários para executá-lo.
-    #image: phpmyadmin/phpmyadmin
+    #image: phpmyadmin/phpmyadmin:5.2.3
 
     # Define o comportamento do container quando ele for
     # encerrado.
@@ -162,7 +162,7 @@ services:
     #
     # Porta 88 do computador -> porta 80 do container.
     #
-    # A porta 80 é a porta HTTP utilizada pelo phpMyAdmin.
+    # A porta 88 é a porta HTTP utilizada pelo phpMyAdmin.
     #
     # Depois de iniciar os containers, o phpMyAdmin poderá
     # ser acessado através de:
